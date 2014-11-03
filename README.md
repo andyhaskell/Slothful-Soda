@@ -15,6 +15,10 @@ With all the people playing Ultimate in Boston, a group of sloths living at Camb
 * A Google Maps API Key
 
 ####How to set it up:
+* `go get` the following packages:
+  * `github.com/coopernurse/gorp`
+  * `github.com/lib/pq`
+  * `github.com/gorilla/mux`
 * In Line 12 of `views/index.html`, replace `YOUR_GOOGLE_MAPS_API_KEY` with your Google Maps API Key
 * In Line 26 of `initDB.go`, replace `postgres://yourPostgresDatabaseLogin` with your Postgres database login information
 * Run `go install`
@@ -23,4 +27,4 @@ With all the people playing Ultimate in Boston, a group of sloths living at Camb
 ###Where do I get Slothful Soda?
 Slothful Soda is not a real product. But if someone actually invents it, let me know so I can buy some!
 
-##NOTE: Don't tell friends who are likely to believe satire news articles like the ones on The Onion about this repository.  Everyone knows if sloths figure out how to use quadcopters it means the Apocalypse is here and we really don't need any more people theorizing about when the Apocalypse is.
+##NOTE: Don't tell friends who are likely to believe satire news articles like the ones on The Onion about this repository.  Sloths don't live on the Fresh Pond and don't have quadcopters but everyone knows if sloths figure out how to use quadcopters it means the Apocalypse is here and we really don't need any more people theorizing about when the Apocalypse is.
