@@ -1,0 +1,61 @@
+html{
+  width:  100%;
+  height: 100%;
+}
+
+body{
+  width:       100%;
+  height:      100%;
+  padding-top: 70px;
+}
+
+p{
+  font-size: 1.6em;
+}
+
+#navbar{
+  height: 50px;
+}
+#navbar a:hover{
+  color: #FF0088;
+}
+#logo{
+  color: #FF0088;
+}
+.logo-img{
+  width:   30px;
+  height:  30px;
+}
+.navbar-brand {
+  color: #FF0088;
+}
+.navbar-brand > img{
+  display: inline;
+}
+
+#main{
+  height: 100%;
+}
+#locations-box{
+  margin-bottom: 15px;
+}
+#locations{
+  width:  100%;
+  height: 100%;
+}
+#map{
+  width:  100%;
+  height: 72%;
+}
+
+.center{
+  text-align: center;
+}
+#hibiscus-img{
+  width:  300px;
+  height: 300px;
+}
+#sloth-img{
+  width:  240px;
+  height: 300px;
+}
