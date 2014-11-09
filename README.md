@@ -15,10 +15,7 @@ With all the people playing Ultimate in Boston, a group of sloths living at Camb
 * A Google Maps API Key
 
 ####How to set it up:
-* `go get` the following packages:
-  * `github.com/coopernurse/gorp`
-  * `github.com/lib/pq`
-  * `github.com/gorilla/mux`
+* `go get github.com/AndyHaskell/slothful-soda`
 * In Line 12 of `views/index.html`, replace `YOUR_GOOGLE_MAPS_API_KEY` with your Google Maps API Key
 * In Line 26 of `initDB.go`, replace `postgres://yourPostgresDatabaseLogin` with your Postgres database login information
 * Run `go install`
