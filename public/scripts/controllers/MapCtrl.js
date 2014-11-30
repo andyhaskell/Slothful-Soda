@@ -1,8 +1,8 @@
 app.controller('MapCtrl', function(Distance, $scope, $http){
-  $scope.locations     = [];
-  $scope.markers       = [];
   $scope.lastDistance  = 5;
   $scope.distance      = 5;
+  $scope.locations     = [];
+  $scope.markers       = [];
   $scope.map           = null;
 
   var ourLat = 42.388282,
@@ -16,6 +16,7 @@ app.controller('MapCtrl', function(Distance, $scope, $http){
     };
 
     var map = new google.maps.Map(document.getElementById('map'), options);
+    $scope.map = map;
 
     for (var i = 0; i < $scope.locations.length; i++) {
       var currentLoc = $scope.locations[i];
@@ -26,7 +27,7 @@ app.controller('MapCtrl', function(Distance, $scope, $http){
         visible : true,
         map     : map
       };
-  
+
       var marker = new google.maps.Marker(markerOptions);
       $scope.markers.push(marker);
     }
@@ -58,7 +59,7 @@ app.controller('MapCtrl', function(Distance, $scope, $http){
       var lat = pos.lat(),
           lng = pos.lng();
 
-      markers[i].setVisible(Distance.distance(ourLat,ourLng,lat,lng) <= miles);
+      markers[i].setVisible(Distance.distance(ourLat,ourLng,lat,lng) <= miles);//4
     }
   }
 });
