@@ -18,16 +18,19 @@ app.controller('MapCtrl', function(Distance, $scope, $http){
     var map = new google.maps.Map(document.getElementById('map'), options);
 
     for (var i = 0; i < $scope.locations.length; i++) {
-        var currentLoc = $scope.locations[i];
-        var markerOptions = {
-            position: new google.maps.LatLng(currentLoc.Lat, currentLoc.Lng),
-            title   : currentLoc.Name,
-            visible : true,
-            map     : map
-        };
-        var marker = new google.maps.Marker(markerOptions);
-        $scope.markers.push(marker);
+      var currentLoc = $scope.locations[i];
+
+      var markerOptions = {
+        position: new google.maps.LatLng(currentLoc.Lat, currentLoc.Lng),
+        title   : currentLoc.Name,
+        visible : true,
+        map     : map
+      };
+  
+      var marker = new google.maps.Marker(markerOptions);
+      $scope.markers.push(marker);
     }
+
     $scope.refreshDistance();
   };
 
