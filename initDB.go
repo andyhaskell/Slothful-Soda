@@ -15,7 +15,7 @@ func populateLocations(locationsMap *gorp.DbMap) {
 	ledermanPark := initLocation("Lederman Park", 42.363649,-71.071774)
 
 	err := locationsMap.Insert(tuftsResQuad, hodgkinsPark,
-							   danehyPark, ledermanPark)
+				   danehyPark, ledermanPark)
 
 	if err != nil {
 		log.Fatal(err)
