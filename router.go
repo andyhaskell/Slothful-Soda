@@ -37,20 +37,31 @@ func makeLocationsRoute(dbMap *gorp.DbMap) func(http.ResponseWriter, *http.Reque
 	}
 }
 
-func addStaticRoutes(m *mux.Router, pathsAndDirs ...string) {
+//AddStaticRoutes takes in a Gorilla mux Router and an alternating set of URL
+//paths and directory paths and for each pair of strings, the router is given a
+//FileServer Handler where the first string is the URL path and the second
+//string is the directory path to serve files from.
+func AddStaticRoutes(m *mux.Router, pathsAndDirs ...string) {
 	for i := 0; i < len(pathsAndDirs)-1; i += 2 {
 		FileServerRouteG(m, pathsAndDirs[i], pathsAndDirs[i+1])
 	}
 }
 
+//initRouter takes in a GORP DbMap and initializes the router's routes while
+//using the DbMap to handle database functionality.
 func initRouter(dbMap *gorp.DbMap) *mux.Router {
-	locationsRoute := makeLocationsRoute(dbMap)
-
 	r := mux.NewRouter()
-	addStaticRoutes(r, "/partials/", "public/partials",
+
+	//Add static routes for the public directory
+	AddStaticRoutes(r, "/partials/", "public/partials",
 		"/scripts/", "public/scripts", "/styles/", "public/styles",
 		"/images/", "public/images")
-	r.HandleFunc("/locations", locationsRoute)
+		
+	//Add the locations route API with makeLocationsRoute
+	r.HandleFunc("/locations", makeLocationsRoute(dbMap))
+	
+	//Serve all other requests with index.html, and ultimately the front-end
+	//Angular.js app.
 	r.PathPrefix("/").HandlerFunc(indexRoute)
 
 	return r
