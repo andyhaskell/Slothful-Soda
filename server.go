@@ -10,8 +10,12 @@ func main() {
 	db := initDB()
 
 	router := initRouter(db)
-	http.Handle("/", router)
+	
+	server := &http.Server{
+		Addr:    ":1123",
+		Handler: router,
+	}
 
 	fmt.Println("Starting server")
-	http.ListenAndServe(":1123", nil)
+	server.ListenAndServe()
 }
